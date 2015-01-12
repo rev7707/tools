@@ -1,0 +1,43 @@
+한글전환 문제////////-----------------------------------------------------
+문제는 이것을 일반적인 '한/영' 키로 하려 할 때인데,
+이 '텍스트 입력창' 화면에서는 한/영키를 입력해넣을 수가 없다.
+(입력해 보면 안된다는 불친절한 문구를 뿜어낸다.)
+캐노니컬社에서 이 부분에는 반드시 두키의 조합으로만 되게끔 조치를 취해놓은 것이리라.
+
+이것을 위해서는 다소 수고를 해야 하는데, dconf-editor 라는 도구가 필요하다.
+(MS 윈도우에 비교하자면 Registry Editor 랄까?)
+sudo apt-get install dconf-editor
+
+
+설치가 끝나면 dconf-editor 를 실행한 뒤, 다음 주소를 찾아간다.
+org.gnome.desktop.wm.keybindings.switch-input-source
+
+그리고 값을 'Hangul' (대소문자 주의) 이라고 입력한다.
+////////--------------------------------------------------
+
+VBox USB인식////////--------------------------------------------------
+~$ sudo groupadd vboxusers
+~$ sudo usermod -aG vboxusers <my username>
+~$ id
+uid=1000(paul) gid=1000(paul) 그룹들=1000(paul),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),124(sambashare),125(vboxusers)
+////////--------------------------------------------------
+
+git config --global core.quotepath fasle
+
+
+sudo apt-get install vim
+sudo apt-get install terminator
+sudo apt-get install ctags cscope
+
+# /home/paul/.gitconfig Git계정정보생성
+
+# /home/paul/.bash_git
+# /home/pau/.bashrc 에 branch name 표시 스크립트 추가
+
+# gerrit 서버 접속정보 생성
+/home/paul/.netrc 생성 gerrit password
+machine dev.nousco.net login paul password ************
+
+# gerrit coomand hook setup
+git clone http://paul@dev.nousco.net:8080/gerrit-setup
+./gerrit-setup/install.sh
