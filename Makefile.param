@@ -1,16 +1,16 @@
-#export CROSS:=arm-linux-gnueabi-
-#export CC:=$(CROSS)gcc
-#export LD:=$(CROSS)ld
-#export AR:=$(CROSS)ar
+export CROSS:=arm-linux-gnueabi-
+export CC:=$(CROSS)gcc
+export LD:=$(CROSS)ld
+export AR:=$(CROSS)ar
 
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 CURRENT_DIR := $(notdir $(patsubst %/,%,$(dir $(MKFILE_PATH))))
 
 KERNEL_PATH :=
 
-LIB_PATH_BASE := /home/albert/Workspace2/VoIP/audio_test/lib
+LIB_PATH_BASE := /home/paul/Workspace/test/lib
 LIB_PATH1 := $(LIB_PATH_BASE)/alsa
-LIBS :=	-lasound -lm -ldl -lpthread -lrt -lc
+LIBS :=	-lpthread
 
 INC_PATH:=-I$(LIB_PATH_BASE)
 
