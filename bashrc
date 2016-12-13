@@ -83,6 +83,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+alias grep1='function _grep1() { grep -nr $1 | grep -v tags | grep -v cscope | grep $1;}; _grep1'
 
 # some more ls aliases
 alias ll='ls -alF'
