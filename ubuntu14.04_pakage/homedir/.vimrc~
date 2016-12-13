@@ -1,0 +1,16 @@
+"................................................................................................."
+"" vim 환경설정
+"................................................................................................."
+	set nu												"line number
+	set ai												"auto indent
+	set ts=4											"tab size
+	set bg=dark											"background color
+	set vb
+	set ru
+	syntax on
+	filetype on
+	set showmode
+	set sm
+	set history=999
+
+
