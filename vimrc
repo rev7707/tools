@@ -4,7 +4,7 @@ set cindent " C 프로그래밍용 자동 들여쓰기
 set smartindent " 스마트한 들여쓰기
 set tabstop=4 "  탭을 4칸으로
 set shiftwidth=4 " 자동 들여쓰기 4칸
-set expandtab " 탭을 공백으로 변환한다. 만일 Makefile 등에서 탭이 필요한 경우에는 :se noet
+"set expandtab " 탭을 공백으로 변환한다. 만일 Makefile 등에서 탭이 필요한 경우에는 :se noet
 set wrap
 set nowrapscan " 검색할 때 문서의 끝에서 처음으로 안돌아감
 set nobackup " 백업 파일을 안만듬
@@ -18,7 +18,7 @@ set hlsearch " 검색어 강조, set hls 도 가능
 set ignorecase " 검색시 대소문자 무시, set ic 도 가능
 set lbr
 set incsearch "  키워드 입력시 점진적 검색
-set colorcolumn=80 " 80컬럼에 붉은 줄을 표시한다.
+"set colorcolumn=80 " 80컬럼에 붉은 줄을 표시한다.
 set backspace=eol,start,indent "  줄의 끝, 시작, 들여쓰기에서 백스페이스시 이전줄로
 set history=1000 "  vi 편집기록 기억갯수 .viminfo에 기록
 set ruler " 화면 우측 하단에 현재 커서의 위치(줄,칸)를 보여준다.
@@ -30,9 +30,9 @@ set wmnu " Tab 자동 완성시 가능한 목록을 보여줌.
 "match ErrorMsg '	'
 map ,<TAB> :%s/	/    /g<CR> " 콤마(,)와 <TAB>을 순서대로 누르면 탭을 스페이스로 변경.
 autocmd BufWritePre * mark a " 편집하던 위치 북마크.
-autocmd BufWritePre * :%s/\s\+$//e " trailing whitespace 자동 제거.
-autocmd BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d " 파일의 끝부분 빈줄 자동 제거.
-autocmd BufWritePre * 0put _ | 0,0;/\(^\s*$\)\@!/-1d " 파일의 앞부분 빈줄 자동 제거.
+"autocmd BufWritePre * :%s/\s\+$//e " trailing whitespace 자동 제거.
+"autocmd BufWritePre * $put _ | $;?\(^\s*$\)\@!?+1,$d " 파일의 끝부분 빈줄 자동 제거.
+"autocmd BufWritePre * 0put _ | 0,0;/\(^\s*$\)\@!/-1d " 파일의 앞부분 빈줄 자동 제거.
 autocmd BufWritePre * 'a " 편집하던 위치로 이동.
 
 syntax on "  구문강조 사용
@@ -49,7 +49,20 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "My Bundles here:
-Bundle 'DoxygenToolkit.vim'
+"Bundle 'https://github.com/Valloric/YouCompleteMe.git'
+Bundle 'https://github.com/vim-scripts/The-NERD-tree.git'
+Bundle 'https://github.com/vim-scripts/taglist.vim.git'
+Bundle 'https://github.com/vim-scripts/DoxygenToolkit.vim.git'
+Bundle 'https://github.com/wesleyche/SrcExpl.git'
+
+
+
+"========= key mapping ==========
+map <F5> :Tlist<CR>
+map <F6> :NERDTreeToggle<CR>
+map <F7> :SrcExplToggle<CR>
+nmap ,c :call CscopeCaller()<CR>
+nmap ,d :call CscopeCalled()<CR>
 
 
 set csprg=/usr/bin/cscope
@@ -64,4 +77,5 @@ set csprg=/usr/bin/cscope
        cs add /usr/src/linux/cscope.out
     endif
     set csverb
+
 "==========================
