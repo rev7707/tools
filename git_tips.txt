@@ -1,0 +1,128 @@
+** 게릿 사용자 권한 
+- 참조: http://d2.naver.com/helloworld/1689463
+- 등록되지 않은 사용자 커밋 활성화.
+Forge Committer Identity : Anonymous user
+
+* * 브랜치 생성된 커밋 확인(branching point)
+git merge-base master your-branch
+
+*master branch는 refs/heads/master refspec(레퍼런스 스펙)의 별칭이다.
+
+**리모트저장소 생성(서버)
+Local Repository Init:
+git init --bare
+
+
+** 리모트 저장소 정보 확인
+~/test/tmp/ttt/wreader_bootstrap (master)$ git remote show linux4sam
+* remote linux4sam
+  Fetch URL: git://github.com/linux4sam/at91bootstrap.git
+  Push  URL: git://github.com/linux4sam/at91bootstrap.git
+  HEAD branch: master
+  Remote branches:
+    android4sam_v3.0    tracked
+    at91bootstrap-3.1   tracked
+    at91bootstrap-3.5.x tracked
+    at91bootstrap-3.x   tracked
+    master              tracked
+  Local branch configured for 'git pull':
+    master merges with remote master
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+
+
+** 게릿에 푸시
+로컬의 HEAD -> 원격의 refs/for/master에 Push
+
+git push origin HEAD:refs/for/master
+
+
+** 깃에 푸시
+- 반드시 refs/head/*에 push + Force Push 가 허용되도록 설정해야 한다.
+git push origin HEAD:refs/heads/master
+
+
+** 빈디렉토리 추가
+find . -type d -empty -exec touch {}/.gitempty \;
+- 특정 디렉토리제거: find . -name .svn -exec rm -rf {} \;
+
+
+*푸시한 커밋 제거
+http://whiteship.me/?p=13516
+
+git reset HEAD^ or git reset HEAD~2
+git push origin +master   : 이렇게 +를 붙여주면 경고는 무시하고 데이터가 손실되도 push한다.
+
+
+
+리모트 작업 참조:
+https://stackoverflow.com/questions/21045061/git-clone-from-another-directory
+file:///path/to/repo.git/
+
+
+** 리모트 저장소 추가
+git remote add origin <url>
+
+
+** 리모트저장소 주소 변경
+LOCAL:
+vi u-boot-at91/.git/config
+  6 [remote "origin"]
+  7     fetch = +refs/heads/*:refs/remotes/origin/*
+  8 #   url = git://github.com/linux4sam/u-boot-at91.git
+  9     url = file:///home/starnex/test/test_repo
+
+
+** 리모드저장소에 모든 local branch  푸시
+git push rm_wreader --all
+git push --all
+git push --tags
+
+
+** 리모트저장소에 특정 branch 푸시(생성)
+git push origin <branch_name>		: 하나만 적을 경우 로컬, 리모트 같은 이름을 접근한다.
+git push origin HEAD:refs/heads/master or git push origin master
+git push origin remotes/origin/u-boot-2013.07-at91:refs/heads/u-boot-2013.07-at91
+
+** 리모트저장소에서 pull
+git pull atmel HEAD:remotes/atmel/master
+
+예) atmel master remote branch 추가
+git remote add atmel git://github.com/linux4sam/linux-at91.git
+git checkout -b atmel-master c46de22 
+git pull atmel HEAD:remotes/atmel/master
+
+
+** 리모트저장소 branch 제거
+git push <repository> :<branch_name>
+git push origin :u-boot-2013.07-at91
+
+
+** 트래킹 브랜치 변경
+리모트 트래킹 브랜치를 로컬 브랜치로 Checkout 하면 자동으로 “트래킹(Tracking) 브랜치''가 만들어진다 
+(트래킹 하는 대상 브랜치를 ``Upstream 브랜치” 라고 부른다). 트래킹 브랜치는 리모트 브랜치와 직접적인 연결고리가 있는 로컬 브랜치이다. 
+트래킹 브랜치에서 git pull 명령을 내리면 리모트 저장소로부터 데이터를 내려받아 연결된 리모트 브랜치와 자동으로 Merge 한다.
+`git checkout -b [branch] [remotename]/[branch] 명령으로 간단히 트래킹 브랜치를 만들 수 있다. 
+
+아래 명령으로 로컬 브랜치 master를 생성 하고, remotes/linux4sam/master을 추적하게 한다.
+- git checkout -b master remotes/linux4sam/master
+- git checkout --track remotes/linux4sam/master
+- 
+git checkout remotes/linux4sam/master
+git checkout -b master
+git branch --set-upstream master remotes/linux4sam/master
+
+** 모든 브랜치 정보 보기
+~$ git branch -av
+  dev0                                     c1ec6fc Merge pull request #68 from peda-r/linea-contrib
+* master                                   c1ec6fc Merge pull request #68 from peda-r/linea-contrib
+  remotes/linux4sam/android4sam_v3.0       b1b31bc android4sam: add default conf for booting Android
+
+
+** git diff & patch
+
+git diff --no-prefix > patchfile   # 패치파일 생성
+cd path/to/top                     # 패치하고자 하는 소스 위치
+patch -p0 < patchfile              # 패치 적용
+
+
