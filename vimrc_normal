@@ -1,3 +1,7 @@
+#################################################################################################
+# Vundle install: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# plug-in install: vim +PluginInstall +qall
+#################################################################################################
 set nocompatible " 오리지날 VI와 호환하지 않음
 set autoindent  " 자동 들여쓰기
 set cindent " C 프로그래밍용 자동 들여쓰기
@@ -53,7 +57,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'taglist-plus'
+Plugin 'taglist-plus'               "function list
 Plugin 'wesleyche/SrcExpl'			"source explorer by ctag
 Plugin 'scrooloose/nerdtree'		"file explorer
 Plugin 'vim-airline/vim-airline'	"status line
