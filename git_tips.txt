@@ -1,19 +1,19 @@
-** °Ô¸´ »ç¿ëÀÚ ±ÇÇÑ 
-- ÂüÁ¶: http://d2.naver.com/helloworld/1689463
-- µî·ÏµÇÁö ¾ÊÀº »ç¿ëÀÚ Ä¿¹Ô È°¼ºÈ­.
+** ê²Œë¦¿ ì‚¬ìš©ì ê¶Œí•œ 
+- ì°¸ì¡°: http://d2.naver.com/helloworld/1689463
+- ë“±ë¡ë˜ì§€ ì•Šì€ ì‚¬ìš©ì ì»¤ë°‹ í™œì„±í™”.
 Forge Committer Identity : Anonymous user
 
-* * ºê·£Ä¡ »ı¼ºµÈ Ä¿¹Ô È®ÀÎ(branching point)
+* * ë¸Œëœì¹˜ ìƒì„±ëœ ì»¤ë°‹ í™•ì¸(branching point)
 git merge-base master your-branch
 
-*master branch´Â refs/heads/master refspec(·¹ÆÛ·±½º ½ºÆå)ÀÇ º°ÄªÀÌ´Ù.
+*master branchëŠ” refs/heads/master refspec(ë ˆí¼ëŸ°ìŠ¤ ìŠ¤í™)ì˜ ë³„ì¹­ì´ë‹¤.
 
-**¸®¸ğÆ®ÀúÀå¼Ò »ı¼º(¼­¹ö)
+**ë¦¬ëª¨íŠ¸ì €ì¥ì†Œ ìƒì„±(ì„œë²„)
 Local Repository Init:
 git init --bare
 
 
-** ¸®¸ğÆ® ÀúÀå¼Ò Á¤º¸ È®ÀÎ
+** ë¦¬ëª¨íŠ¸ ì €ì¥ì†Œ ì •ë³´ í™•ì¸
 ~/test/tmp/ttt/wreader_bootstrap (master)$ git remote show linux4sam
 * remote linux4sam
   Fetch URL: git://github.com/linux4sam/at91bootstrap.git
@@ -31,40 +31,40 @@ git init --bare
     master pushes to master (up to date)
 
 
-** °Ô¸´¿¡ Çª½Ã
-·ÎÄÃÀÇ HEAD -> ¿ø°İÀÇ refs/for/master¿¡ Push
+** ê²Œë¦¿ì— í‘¸ì‹œ
+ë¡œì»¬ì˜ HEAD -> ì›ê²©ì˜ refs/for/masterì— Push
 
 git push origin HEAD:refs/for/master
 
 
-** ±ê¿¡ Çª½Ã
-- ¹İµå½Ã refs/head/*¿¡ push + Force Push °¡ Çã¿ëµÇµµ·Ï ¼³Á¤ÇØ¾ß ÇÑ´Ù.
+** ê¹ƒì— í‘¸ì‹œ
+- ë°˜ë“œì‹œ refs/head/*ì— push + Force Push ê°€ í—ˆìš©ë˜ë„ë¡ ì„¤ì •í•´ì•¼ í•œë‹¤.
 git push origin HEAD:refs/heads/master
 
 
-** ºóµğ·ºÅä¸® Ãß°¡
+** ë¹ˆë””ë ‰í† ë¦¬ ì¶”ê°€
 find . -type d -empty -exec touch {}/.gitempty \;
-- Æ¯Á¤ µğ·ºÅä¸®Á¦°Å: find . -name .svn -exec rm -rf {} \;
+- íŠ¹ì • ë””ë ‰í† ë¦¬ì œê±°: find . -name .svn -exec rm -rf {} \;
 
 
-*Çª½ÃÇÑ Ä¿¹Ô Á¦°Å
+*í‘¸ì‹œí•œ ì»¤ë°‹ ì œê±°
 http://whiteship.me/?p=13516
 
 git reset HEAD^ or git reset HEAD~2
-git push origin +master   : ÀÌ·¸°Ô +¸¦ ºÙ¿©ÁÖ¸é °æ°í´Â ¹«½ÃÇÏ°í µ¥ÀÌÅÍ°¡ ¼Õ½ÇµÇµµ pushÇÑ´Ù.
+git push origin +master   : ì´ë ‡ê²Œ +ë¥¼ ë¶™ì—¬ì£¼ë©´ ê²½ê³ ëŠ” ë¬´ì‹œí•˜ê³  ë°ì´í„°ê°€ ì†ì‹¤ë˜ë„ pushí•œë‹¤.
 
 
 
-¸®¸ğÆ® ÀÛ¾÷ ÂüÁ¶:
+ë¦¬ëª¨íŠ¸ ì‘ì—… ì°¸ì¡°:
 https://stackoverflow.com/questions/21045061/git-clone-from-another-directory
 file:///path/to/repo.git/
 
 
-** ¸®¸ğÆ® ÀúÀå¼Ò Ãß°¡
+** ë¦¬ëª¨íŠ¸ ì €ì¥ì†Œ ì¶”ê°€
 git remote add origin <url>
 
 
-** ¸®¸ğÆ®ÀúÀå¼Ò ÁÖ¼Ò º¯°æ
+** ë¦¬ëª¨íŠ¸ì €ì¥ì†Œ ì£¼ì†Œ ë³€ê²½
 LOCAL:
 vi u-boot-at91/.git/config
   6 [remote "origin"]
@@ -73,38 +73,38 @@ vi u-boot-at91/.git/config
   9     url = file:///home/starnex/test/test_repo
 
 
-** ¸®¸ğµåÀúÀå¼Ò¿¡ ¸ğµç local branch  Çª½Ã
+** ë¦¬ëª¨ë“œì €ì¥ì†Œì— ëª¨ë“  local branch  í‘¸ì‹œ
 git push rm_wreader --all
 git push --all
 git push --tags
 
 
-** ¸®¸ğÆ®ÀúÀå¼Ò¿¡ Æ¯Á¤ branch Çª½Ã(»ı¼º)
-git push origin <branch_name>		: ÇÏ³ª¸¸ ÀûÀ» °æ¿ì ·ÎÄÃ, ¸®¸ğÆ® °°Àº ÀÌ¸§À» Á¢±ÙÇÑ´Ù.
+** ë¦¬ëª¨íŠ¸ì €ì¥ì†Œì— íŠ¹ì • branch í‘¸ì‹œ(ìƒì„±)
+git push origin <branch_name>		: í•˜ë‚˜ë§Œ ì ì„ ê²½ìš° ë¡œì»¬, ë¦¬ëª¨íŠ¸ ê°™ì€ ì´ë¦„ì„ ì ‘ê·¼í•œë‹¤.
 git push origin HEAD:refs/heads/master or git push origin master
 git push origin remotes/origin/u-boot-2013.07-at91:refs/heads/u-boot-2013.07-at91
 
-** ¸®¸ğÆ®ÀúÀå¼Ò¿¡¼­ pull
+** ë¦¬ëª¨íŠ¸ì €ì¥ì†Œì—ì„œ pull
 git pull atmel HEAD:remotes/atmel/master
 
-¿¹) atmel master remote branch Ãß°¡
+ì˜ˆ) atmel master remote branch ì¶”ê°€
 git remote add atmel git://github.com/linux4sam/linux-at91.git
 git checkout -b atmel-master c46de22 
 git pull atmel HEAD:remotes/atmel/master
 
 
-** ¸®¸ğÆ®ÀúÀå¼Ò branch Á¦°Å
+** ë¦¬ëª¨íŠ¸ì €ì¥ì†Œ branch ì œê±°
 git push <repository> :<branch_name>
 git push origin :u-boot-2013.07-at91
 
 
-** Æ®·¡Å· ºê·£Ä¡ º¯°æ
-¸®¸ğÆ® Æ®·¡Å· ºê·£Ä¡¸¦ ·ÎÄÃ ºê·£Ä¡·Î Checkout ÇÏ¸é ÀÚµ¿À¸·Î ¡°Æ®·¡Å·(Tracking) ºê·£Ä¡''°¡ ¸¸µé¾îÁø´Ù 
-(Æ®·¡Å· ÇÏ´Â ´ë»ó ºê·£Ä¡¸¦ ``Upstream ºê·£Ä¡¡± ¶ó°í ºÎ¸¥´Ù). Æ®·¡Å· ºê·£Ä¡´Â ¸®¸ğÆ® ºê·£Ä¡¿Í Á÷Á¢ÀûÀÎ ¿¬°á°í¸®°¡ ÀÖ´Â ·ÎÄÃ ºê·£Ä¡ÀÌ´Ù. 
-Æ®·¡Å· ºê·£Ä¡¿¡¼­ git pull ¸í·ÉÀ» ³»¸®¸é ¸®¸ğÆ® ÀúÀå¼Ò·ÎºÎÅÍ µ¥ÀÌÅÍ¸¦ ³»·Á¹Ş¾Æ ¿¬°áµÈ ¸®¸ğÆ® ºê·£Ä¡¿Í ÀÚµ¿À¸·Î Merge ÇÑ´Ù.
-`git checkout -b [branch] [remotename]/[branch] ¸í·ÉÀ¸·Î °£´ÜÈ÷ Æ®·¡Å· ºê·£Ä¡¸¦ ¸¸µé ¼ö ÀÖ´Ù. 
+** íŠ¸ë˜í‚¹ ë¸Œëœì¹˜ ë³€ê²½
+ë¦¬ëª¨íŠ¸ íŠ¸ë˜í‚¹ ë¸Œëœì¹˜ë¥¼ ë¡œì»¬ ë¸Œëœì¹˜ë¡œ Checkout í•˜ë©´ ìë™ìœ¼ë¡œ â€œíŠ¸ë˜í‚¹(Tracking) ë¸Œëœì¹˜''ê°€ ë§Œë“¤ì–´ì§„ë‹¤ 
+(íŠ¸ë˜í‚¹ í•˜ëŠ” ëŒ€ìƒ ë¸Œëœì¹˜ë¥¼ ``Upstream ë¸Œëœì¹˜â€ ë¼ê³  ë¶€ë¥¸ë‹¤). íŠ¸ë˜í‚¹ ë¸Œëœì¹˜ëŠ” ë¦¬ëª¨íŠ¸ ë¸Œëœì¹˜ì™€ ì§ì ‘ì ì¸ ì—°ê²°ê³ ë¦¬ê°€ ìˆëŠ” ë¡œì»¬ ë¸Œëœì¹˜ì´ë‹¤. 
+íŠ¸ë˜í‚¹ ë¸Œëœì¹˜ì—ì„œ git pull ëª…ë ¹ì„ ë‚´ë¦¬ë©´ ë¦¬ëª¨íŠ¸ ì €ì¥ì†Œë¡œë¶€í„° ë°ì´í„°ë¥¼ ë‚´ë ¤ë°›ì•„ ì—°ê²°ëœ ë¦¬ëª¨íŠ¸ ë¸Œëœì¹˜ì™€ ìë™ìœ¼ë¡œ Merge í•œë‹¤.
+`git checkout -b [branch] [remotename]/[branch] ëª…ë ¹ìœ¼ë¡œ ê°„ë‹¨íˆ íŠ¸ë˜í‚¹ ë¸Œëœì¹˜ë¥¼ ë§Œë“¤ ìˆ˜ ìˆë‹¤. 
 
-¾Æ·¡ ¸í·ÉÀ¸·Î ·ÎÄÃ ºê·£Ä¡ master¸¦ »ı¼º ÇÏ°í, remotes/linux4sam/masterÀ» ÃßÀûÇÏ°Ô ÇÑ´Ù.
+ì•„ë˜ ëª…ë ¹ìœ¼ë¡œ ë¡œì»¬ ë¸Œëœì¹˜ masterë¥¼ ìƒì„± í•˜ê³ , remotes/linux4sam/masterì„ ì¶”ì í•˜ê²Œ í•œë‹¤.
 - git checkout -b master remotes/linux4sam/master
 - git checkout --track remotes/linux4sam/master
 - 
@@ -112,7 +112,7 @@ git checkout remotes/linux4sam/master
 git checkout -b master
 git branch --set-upstream master remotes/linux4sam/master
 
-** ¸ğµç ºê·£Ä¡ Á¤º¸ º¸±â
+** ëª¨ë“  ë¸Œëœì¹˜ ì •ë³´ ë³´ê¸°
 ~$ git branch -av
   dev0                                     c1ec6fc Merge pull request #68 from peda-r/linea-contrib
 * master                                   c1ec6fc Merge pull request #68 from peda-r/linea-contrib
@@ -121,8 +121,6 @@ git branch --set-upstream master remotes/linux4sam/master
 
 ** git diff & patch
 
-git diff --no-prefix > patchfile   # ÆĞÄ¡ÆÄÀÏ »ı¼º
-cd path/to/top                     # ÆĞÄ¡ÇÏ°íÀÚ ÇÏ´Â ¼Ò½º À§Ä¡
-patch -p0 < patchfile              # ÆĞÄ¡ Àû¿ë
-
-
+git diff --no-prefix > patchfile   # íŒ¨ì¹˜íŒŒì¼ ìƒì„±
+cd path/to/top                     # íŒ¨ì¹˜í•˜ê³ ì í•˜ëŠ” ì†ŒìŠ¤ ìœ„ì¹˜
+patch -p0 < patchfile              # íŒ¨ì¹˜ ì ìš©
